@@ -1,0 +1,9 @@
+- name: Config Vim with plugins
+  hosts: dev
+    #gather_facts: yes
+  become: no
+
+  tasks:
+    - name: Configure linux according to your needs
+      import_role:
+        name: linuxready

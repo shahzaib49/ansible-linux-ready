@@ -1,0 +1,15 @@
+---
+# vars file for linuxready
+install_packages:
+  - vim
+  - net-tools
+  - build-essential
+  - htop
+  - git
+  - make 
+  - cmake
+  - apt-transport-https
+  - ca-certificates
+  - pkg-config
+  - locate
+  - screen

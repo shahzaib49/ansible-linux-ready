@@ -1,0 +1,26 @@
+---
+# tasks for opensips installing OpenSIPS on Debian
+- name: Install a list of packages
+  package:
+    name: "{{ install_packages }}"
+    state: present
+  tags:
+    - install_packages
+
+- name: Insert Screen Footer content in Linux screen
+  ansible.builtin.blockinfile:
+    path: /etc/screenrc
+    block: |
+      autodetach on 
+      startup_message off 
+      hardstatus alwayslastline 
+      shelltitle 'bash'
+      hardstatus string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
+      
+- name: Fix vim mouse settings
+  ansible.builtin.blockinfile:
+    path: /etc/vim/vimrc
+    block: |
+      runtime! defaults.vim
+      let g:skip_defaults_vim = 1
+      set mouse=
